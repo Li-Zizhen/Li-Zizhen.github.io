@@ -23,8 +23,8 @@
     }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #0b0b0d;
-      color: #e0e0e0;
+      background-color: #ffffff;
+      color: #333;
       scroll-behavior: smooth;
     }
     a {
@@ -41,7 +41,8 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
@@ -51,7 +52,7 @@
     nav .logo {
       font-size: 1.5em;
       font-weight: 700;
-      color: #00bcd4;
+      color: #007bff;
     }
     nav ul {
       display: flex;
@@ -63,9 +64,10 @@
     nav ul li a {
       font-weight: 400;
       transition: color 0.3s;
+      color: #333;
     }
     nav ul li a:hover {
-      color: #00bcd4;
+      color: #007bff;
     }
 
     /* HERO SECTION */
@@ -75,7 +77,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      background: linear-gradient(135deg, #007bff 0%, #ffffff 100%);
       text-align: center;
       padding: 0 20px;
     }
@@ -88,6 +90,7 @@
       font-size: 1.3rem;
       max-width: 700px;
       line-height: 1.5;
+      color: #ffffff;
     }
 
     /* SECTION WRAPPER */
@@ -100,7 +103,7 @@
       font-size: 2.2rem;
       text-align: center;
       margin-bottom: 50px;
-      color: #00bcd4;
+      color: #007bff;
       position: relative;
     }
     .section-title::after {
@@ -108,55 +111,55 @@
       display: block;
       width: 60px;
       height: 4px;
-      background: #00bcd4;
+      background: #007bff;
       margin: 20px auto 0;
       border-radius: 2px;
     }
 
-    /* FLEX GRID FOR EXPERIENCES */
-    .experience-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    @media (min-width: 768px) {
-      .experience-grid {
-        grid-template-columns: 1fr 1fr; /* 2 columns on tablet+ */
-      }
-    }
-    /* CARD WITH IMAGE ON LEFT OR TOP */
+    /* EXPERIENCE ROW STYLE */
     .exp-card {
-      background: #1e1e1e;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      overflow: hidden;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      background: #f7f7f7;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 40px;
+      overflow: hidden;
     }
     .exp-card img {
-      width: 100%;
-      height: auto;
+      width: 300px;
+      height: 100%;
       object-fit: cover;
-      background: #000;
     }
     .exp-content {
-      padding: 20px;
+      padding: 30px;
     }
     .exp-content h3 {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      color: #00bcd4;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #007bff;
     }
-    .exp-content p {
+    .exp-content p, .exp-content li {
       line-height: 1.6;
       margin-bottom: 10px;
+    }
+
+    /* RESPONSIVE LAYOUT */
+    @media (max-width: 768px) {
+      .exp-card {
+        flex-direction: column;
+      }
+      .exp-card img {
+        width: 100%;
+        height: auto;
+      }
     }
 
     /* FOOTER */
     footer {
       text-align: center;
       padding: 20px;
-      background: #000;
+      background: #f1f1f1;
       color: #777;
     }
   </style>
@@ -190,20 +193,18 @@
   <!-- EDUCATION SECTION -->
   <section id="education" data-aos="fade-up">
     <h2 class="section-title">Education</h2>
-    <div class="experience-grid">
-      <!-- Card: NUS -->
-      <div class="exp-card" data-aos="fade-right">
-        <img src="img/nus_education.png" alt="NUS Education Image"/>
-        <div class="exp-content">
-          <h3>National University of Singapore (Aug 2022 - Aug 2026, Expected)</h3>
-          <p>Bachelor of Computing in Computer Science (AI Track), Minor in Mathematics, Economics, and Statistics</p>
-          <ul>
-            <li>CS Courses: AI, Machine Learning, Computer Vision, NLP, Data Structures & Algorithms, etc.</li>
-            <li>Math Courses: Discrete Structures, Linear Algebra, Probability, Statistics, etc.</li>
-            <li>Summer Exchange: Peking University (Machine Learning Algorithms: From Math to Code)</li>
-            <li>Standardized Exams: GRE 330/340, TOEFL 109/120</li>
-          </ul>
-        </div>
+    <div class="exp-card" data-aos="fade-right">
+      <img src="img/nus_education.png" alt="NUS Education Image"/>
+      <div class="exp-content">
+        <h3>National University of Singapore</h3>
+        <p>(Aug 2022 - Aug 2026, Expected)</p>
+        <p>Bachelor of Computing in Computer Science (AI Track), Minor in Mathematics, Economics, and Statistics</p>
+        <ul>
+          <li>CS Courses: AI, Machine Learning, Computer Vision, NLP, Data Structures & Algorithms, etc.</li>
+          <li>Math Courses: Discrete Structures, Linear Algebra, Probability, Statistics, etc.</li>
+          <li>Summer Exchange: Peking University (Machine Learning Algorithms: From Math to Code)</li>
+          <li>Standardized Exams: GRE 330/340, TOEFL 109/120</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -211,17 +212,15 @@
   <!-- TECHNICAL SKILLS -->
   <section id="skills" data-aos="fade-up">
     <h2 class="section-title">Technical Skills</h2>
-    <div class="experience-grid">
-      <div class="exp-card" data-aos="fade-right">
-        <img src="img/tech_skills.png" alt="Technical Skills Image"/>
-        <div class="exp-content">
-          <h3>Programming & Tools</h3>
-          <ul>
-            <li>Languages: Java, Python, C, MATLAB, R</li>
-            <li>Frameworks/Libraries: PyTorch, Flask</li>
-            <li>Other Tools: Git, GitHub, Bash, Web Crawlers, HTML, CSS</li>
-          </ul>
-        </div>
+    <div class="exp-card" data-aos="fade-right">
+      <img src="img/tech_skills.png" alt="Technical Skills Image"/>
+      <div class="exp-content">
+        <h3>Programming & Tools</h3>
+        <ul>
+          <li>Languages: Java, Python, C, MATLAB, R</li>
+          <li>Frameworks/Libraries: PyTorch, Flask</li>
+          <li>Other Tools: Git, GitHub, Bash, Web Crawlers, HTML, CSS</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -229,74 +228,77 @@
   <!-- RESEARCH EXPERIENCE -->
   <section id="research" data-aos="fade-up">
     <h2 class="section-title">Research Experience</h2>
-    <div class="experience-grid">
-      <!-- NUS Research -->
-      <div class="exp-card" data-aos="fade-right">
-        <img src="img/research1.png" alt="Research Image 1"/>
-        <div class="exp-content">
-          <h3>NUS: Discovering Winning Strategies in Sports (Apr 2024 - Present)</h3>
-          <ul>
-            <li>Utilized Python (Pandas, Matplotlib) for tennis match data processing and visualization</li>
-            <li>Created HTML reports with CSS for enhanced visual clarity</li>
-            <li>Automated daily match reports with crontab and Bash script</li>
-            <li>Developed Flask web platform for customized report downloads</li>
-            <li>Implemented AWS SQS for secure server-backend communication</li>
-            <li>Developed an LLM ChatBot for on-demand data insights</li>
-            <li>Presented a poster at UREC2025</li>
-          </ul>
-        </div>
+    <!-- NUS Research -->
+    <div class="exp-card" data-aos="fade-right">
+      <img src="img/research1.png" alt="Research Image 1"/>
+      <div class="exp-content">
+        <h3>NUS: Discovering Winning Strategies in Sports</h3>
+        <p>(Apr 2024 - Present)</p>
+        <ul>
+          <li>Utilized Python (Pandas, Matplotlib) for tennis match data processing and visualization</li>
+          <li>Created HTML reports with CSS for enhanced visual clarity</li>
+          <li>Automated daily match reports with crontab and Bash script</li>
+          <li>Developed Flask web platform for customized report downloads</li>
+          <li>Implemented AWS SQS for secure server-backend communication</li>
+          <li>Developed an LLM ChatBot for on-demand data insights</li>
+          <li>Presented a poster at UREC2025</li>
+        </ul>
       </div>
-      <!-- Tsinghua–Berkeley 1 -->
-      <div class="exp-card" data-aos="fade-left">
-        <img src="img/research2.png" alt="Research Image 2"/>
-        <div class="exp-content">
-          <h3>Tsinghua–Berkeley: Active Vision & Optical Zoom (Dec 2024 - Jan 2025)</h3>
-          <ul>
-            <li>Trained YOLOv5 for object detection; developed adaptive zoom algorithm</li>
-            <li>Conducted feasibility study with RoboTwin platform</li>
-            <li>Improved task success rates by 14% with zoom-augmented data</li>
-            <li>Extended AV-ALOHA system for VR teleoperation (Quest 3 + USB camera)</li>
-          </ul>
-        </div>
+    </div>
+    <!-- Tsinghua–Berkeley Research -->
+    <div class="exp-card" data-aos="fade-left">
+      <img src="img/research2.png" alt="Research Image 2"/>
+      <div class="exp-content">
+        <h3>Tsinghua–Berkeley: Active Vision & Optical Zoom</h3>
+        <p>(Dec 2024 - Jan 2025)</p>
+        <ul>
+          <li>Trained YOLOv5 for object detection; developed adaptive zoom algorithm</li>
+          <li>Conducted feasibility study with RoboTwin platform</li>
+          <li>Improved task success rates by 14% with zoom-augmented data</li>
+          <li>Extended AV-ALOHA system for VR teleoperation (Quest 3 + USB camera)</li>
+        </ul>
       </div>
-      <!-- Tsinghua–Berkeley 2 -->
-      <div class="exp-card" data-aos="fade-right">
-        <img src="img/research3.png" alt="Research Image 3"/>
-        <div class="exp-content">
-          <h3>Tsinghua–Berkeley: Humanoid Robots & Imitation Learning (Jul 2024 - Aug 2024)</h3>
-          <ul>
-            <li>Reproduced “OPEN TEACH” research for teleoperation</li>
-            <li>Used Nvidia Isaac Lab/Gym and Meta Quest 3 for gesture-based control</li>
-            <li>Collected end-effector and joint angle data for imitation learning</li>
-            <li>Applied behavioral cloning and inverse reinforcement learning</li>
-          </ul>
-        </div>
+    </div>
+    <!-- Tsinghua–Berkeley Research 2 -->
+    <div class="exp-card" data-aos="fade-right">
+      <img src="img/research3.png" alt="Research Image 3"/>
+      <div class="exp-content">
+        <h3>Tsinghua–Berkeley: Humanoid Robots & Imitation Learning</h3>
+        <p>(Jul 2024 - Aug 2024)</p>
+        <ul>
+          <li>Reproduced “OPEN TEACH” research for teleoperation</li>
+          <li>Used Nvidia Isaac Lab/Gym and Meta Quest 3 for gesture-based control</li>
+          <li>Collected end-effector and joint angle data for imitation learning</li>
+          <li>Applied behavioral cloning and inverse reinforcement learning</li>
+        </ul>
       </div>
-      <!-- Xi'an Jiaotong University -->
-      <div class="exp-card" data-aos="fade-left">
-        <img src="img/research4.png" alt="Research Image 4"/>
-        <div class="exp-content">
-          <h3>Xi’an Jiaotong University: Social Hotspot Propagation (Dec 2023 - Present)</h3>
-          <ul>
-            <li>Authored a review on information diffusion models in social networks</li>
-            <li>Enhanced Independent Cascade model with individual influence & network structure</li>
-            <li>Utilized community detection to predict information spread patterns</li>
-          </ul>
-        </div>
+    </div>
+    <!-- Xi'an Jiaotong Research -->
+    <div class="exp-card" data-aos="fade-left">
+      <img src="img/research4.png" alt="Research Image 4"/>
+      <div class="exp-content">
+        <h3>Xi’an Jiaotong University: Social Hotspot Propagation</h3>
+        <p>(Dec 2023 - Present)</p>
+        <ul>
+          <li>Authored a review on information diffusion models in social networks</li>
+          <li>Enhanced Independent Cascade model with individual influence & network structure</li>
+          <li>Utilized community detection to predict information spread patterns</li>
+        </ul>
       </div>
-      <!-- X-Institute Summer Camp -->
-      <div class="exp-card" data-aos="fade-right">
-        <img src="img/research5.png" alt="Research Image 5"/>
-        <div class="exp-content">
-          <h3>X-Institute Summer Camp: Drone Simulation (Jul 2023 - Aug 2023)</h3>
-          <ul>
-            <li>Engineered a simulation game with controllable drones exploring 3D terrains</li>
-            <li>Developed a vision-based obstacle avoidance system</li>
-            <li>Investigated 3D terrain reconstruction for improved navigation</li>
-            <li>Presented research as an outstanding representative</li>
-            <li>Awarded the 01 Rising Star Award</li>
-          </ul>
-        </div>
+    </div>
+    <!-- X-Institute Summer Camp Research -->
+    <div class="exp-card" data-aos="fade-right">
+      <img src="img/research5.png" alt="Research Image 5"/>
+      <div class="exp-content">
+        <h3>X-Institute Summer Camp: Drone Simulation</h3>
+        <p>(Jul 2023 - Aug 2023)</p>
+        <ul>
+          <li>Engineered a simulation game with controllable drones exploring 3D terrains</li>
+          <li>Developed a vision-based obstacle avoidance system</li>
+          <li>Investigated 3D terrain reconstruction for improved navigation</li>
+          <li>Presented research as an outstanding representative</li>
+          <li>Awarded the 01 Rising Star Award</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -304,18 +306,17 @@
   <!-- INTERNSHIP EXPERIENCE -->
   <section id="internship" data-aos="fade-up">
     <h2 class="section-title">Internship Experience</h2>
-    <div class="experience-grid">
-      <div class="exp-card" data-aos="fade-right">
-        <img src="img/internship1.png" alt="Internship Image"/>
-        <div class="exp-content">
-          <h3>AI Algorithm Intern, Bytedance (Dec 2023 - Jan 2024)</h3>
-          <ul>
-            <li>Developed a web crawler to build a custom handwritten digits dataset</li>
-            <li>Trained CNN for digit classification using PyTorch (VGG16, ResNet, Inception v3)</li>
-            <li>Created a simulated environment for drone route optimization via DQN</li>
-            <li>Evaluated multiple object detection and human pose estimation models</li>
-          </ul>
-        </div>
+    <div class="exp-card" data-aos="fade-right">
+      <img src="img/internship1.png" alt="Internship Image"/>
+      <div class="exp-content">
+        <h3>AI Algorithm Intern, Bytedance</h3>
+        <p>(Dec 2023 - Jan 2024)</p>
+        <ul>
+          <li>Developed a web crawler to build a custom handwritten digits dataset</li>
+          <li>Trained CNN for digit classification using PyTorch (VGG16, ResNet, Inception v3)</li>
+          <li>Created a simulated environment for drone route optimization via DQN</li>
+          <li>Evaluated multiple object detection and human pose estimation models</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -323,37 +324,38 @@
   <!-- PROJECT EXPERIENCE -->
   <section id="projects" data-aos="fade-up">
     <h2 class="section-title">Project Experience</h2>
-    <div class="experience-grid">
-      <div class="exp-card" data-aos="fade-right">
-        <img src="img/project1.png" alt="EduLink-NUS"/>
-        <div class="exp-content">
-          <h3>EduLink-NUS Academic Data Management (Jan 2024 - Aug 2024)</h3>
-          <ul>
-            <li>Developed a desktop app to streamline student data management for NUS instructors</li>
-            <li>Implemented tagging functionalities for efficient data retrieval</li>
-            <li>Enhanced UI using JavaFX; performed robust unit & integration testing</li>
-            <li>Maintained documentation for developers and end-users</li>
-          </ul>
-        </div>
+    <div class="exp-card" data-aos="fade-right">
+      <img src="img/project1.png" alt="EduLink-NUS"/>
+      <div class="exp-content">
+        <h3>EduLink-NUS Academic Data Management</h3>
+        <p>(Jan 2024 - Aug 2024)</p>
+        <ul>
+          <li>Developed a desktop app to streamline student data management for NUS instructors</li>
+          <li>Implemented tagging functionalities for efficient data retrieval</li>
+          <li>Enhanced UI using JavaFX; performed robust unit & integration testing</li>
+          <li>Maintained documentation for developers and end-users</li>
+        </ul>
       </div>
-      <div class="exp-card" data-aos="fade-left">
-        <img src="img/project2.png" alt="MCM"/>
-        <div class="exp-content">
-          <h3>Mathematical Contest in Modeling (Feb 2024)</h3>
-          <ul>
-            <li>Developed a momentum quantification model for tennis matches (Exponential Decay + AHP)</li>
-            <li>Achieved F1 score of 0.75 using a Random Forest-LSTM hybrid model</li>
-          </ul>
-        </div>
+    </div>
+    <div class="exp-card" data-aos="fade-left">
+      <img src="img/project2.png" alt="MCM"/>
+      <div class="exp-content">
+        <h3>Mathematical Contest in Modeling</h3>
+        <p>(Feb 2024)</p>
+        <ul>
+          <li>Developed a momentum quantification model for tennis matches (Exponential Decay + AHP)</li>
+          <li>Achieved F1 score of 0.75 using a Random Forest-LSTM hybrid model</li>
+        </ul>
       </div>
-      <div class="exp-card" data-aos="fade-right">
-        <img src="img/project3.png" alt="RightShip Hackathon"/>
-        <div class="exp-content">
-          <h3>RightShip Hackathon (Jan 2024)</h3>
-          <ul>
-            <li>Analyzed GHG emissions reduction via maritime port electrification with Python</li>
-          </ul>
-        </div>
+    </div>
+    <div class="exp-card" data-aos="fade-right">
+      <img src="img/project3.png" alt="RightShip Hackathon"/>
+      <div class="exp-content">
+        <h3>RightShip Hackathon</h3>
+        <p>(Jan 2024)</p>
+        <ul>
+          <li>Analyzed GHG emissions reduction via maritime port electrification with Python</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -361,24 +363,24 @@
   <!-- EXTRA-CURRICULAR ACTIVITIES -->
   <section id="activities" data-aos="fade-up">
     <h2 class="section-title">Extra-Curricular Activities</h2>
-    <div class="experience-grid">
-      <div class="exp-card" data-aos="fade-right">
-        <img src="img/activity1.png" alt="commIT"/>
-        <div class="exp-content">
-          <h3>NUS Student Union commIT Technical Team (Dec 2024 - Present)</h3>
-          <ul>
-            <li>Developing NUS Student Union website and finance manager software for clubs</li>
-          </ul>
-        </div>
+    <div class="exp-card" data-aos="fade-right">
+      <img src="img/activity1.png" alt="commIT"/>
+      <div class="exp-content">
+        <h3>NUS Student Union commIT Technical Team</h3>
+        <p>(Dec 2024 - Present)</p>
+        <ul>
+          <li>Developing NUS Student Union website and finance manager software for clubs</li>
+        </ul>
       </div>
-      <div class="exp-card" data-aos="fade-left">
-        <img src="img/activity2.png" alt="Chinese Society"/>
-        <div class="exp-content">
-          <h3>NUS Chinese Society (Jan 2024 - Present)</h3>
-          <ul>
-            <li>Managed event logistics, transporting goods and arranging venues</li>
-          </ul>
-        </div>
+    </div>
+    <div class="exp-card" data-aos="fade-left">
+      <img src="img/activity2.png" alt="Chinese Society"/>
+      <div class="exp-content">
+        <h3>NUS Chinese Society</h3>
+        <p>(Jan 2024 - Present)</p>
+        <ul>
+          <li>Managed event logistics, transporting goods and arranging venues</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -386,19 +388,17 @@
   <!-- AWARDS & HONORS -->
   <section id="awards" data-aos="fade-up">
     <h2 class="section-title">Awards & Honors</h2>
-    <div class="experience-grid">
-      <div class="exp-card" data-aos="fade-right">
-        <img src="img/awards.png" alt="Awards Image"/>
-        <div class="exp-content">
-          <h3>Achievements</h3>
-          <ul>
-            <li>National Gold (Division 2) in PHYSICSBOWL 2021</li>
-            <li>Gold in British Physics Olympiad 2020-2021 Senior Physics Challenge</li>
-            <li>High Distinction in Australian Science Olympiads-Physics</li>
-            <li>Entrepreneurship Award at FRC; Motivate Award & Second Place Alliance at FTC</li>
-            <li>Shenzhen Foreign Language School Soccer Team & Club Leader</li>
-          </ul>
-        </div>
+    <div class="exp-card" data-aos="fade-right">
+      <img src="img/awards.png" alt="Awards Image"/>
+      <div class="exp-content">
+        <h3>Achievements</h3>
+        <ul>
+          <li>National Gold (Division 2) in PHYSICSBOWL 2021</li>
+          <li>Gold in British Physics Olympiad 2020-2021 Senior Physics Challenge</li>
+          <li>High Distinction in Australian Science Olympiads-Physics</li>
+          <li>Entrepreneurship Award at FRC; Motivate Award & Second Place Alliance at FTC</li>
+          <li>Shenzhen Foreign Language School Soccer Team & Club Leader</li>
+        </ul>
       </div>
     </div>
   </section>
