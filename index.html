@@ -6,7 +6,7 @@
   <title>Li Zizhen - Portfolio</title>
   <!-- Google Fonts -->
   <link
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
     rel="stylesheet"
   />
   <!-- AOS CSS -->
@@ -15,7 +15,7 @@
     rel="stylesheet"
   />
   <style>
-    /* RESET & GLOBAL */
+    /* RESET & GLOBAL STYLES */
     * {
       margin: 0;
       padding: 0;
@@ -23,7 +23,7 @@
     }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #ffffff;
+      background-color: #fff;
       color: #333;
       scroll-behavior: smooth;
     }
@@ -34,40 +34,41 @@
     ul {
       list-style: disc inside;
       margin-left: 20px;
+      padding-left: 0;
     }
 
-    /* NAVIGATION */
+    /* NAVIGATION (APPLE-LIKE MINIMALISM) */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: #ffffff;
-      border-bottom: 1px solid #e0e0e0;
-      padding: 15px 30px;
+      background: #f5f5f7; /* Light gray background often used by Apple */
+      padding: 16px 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 999;
+      box-shadow: 0 0 6px rgba(0,0,0,0.05);
     }
     nav .logo {
-      font-size: 1.5em;
-      font-weight: 700;
-      color: #007bff;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #000;
     }
     nav ul {
       display: flex;
-      gap: 20px;
+      gap: 24px;
     }
     nav ul li {
       list-style: none;
     }
     nav ul li a {
       font-weight: 400;
+      color: #000;
       transition: color 0.3s;
-      color: #333;
     }
     nav ul li a:hover {
-      color: #007bff;
+      color: #666;
     }
 
     /* HERO SECTION */
@@ -77,71 +78,67 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: linear-gradient(135deg, #007bff 0%, #ffffff 100%);
+      /* White background, big text, Apple-like spacing */
+      background-color: #fff;
       text-align: center;
       padding: 0 20px;
+      margin-top: 64px; /* To avoid nav overlap */
     }
     #hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      color: #ffffff;
+      font-size: 3rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      color: #000;
     }
     #hero p {
-      font-size: 1.3rem;
-      max-width: 700px;
-      line-height: 1.5;
-      color: #ffffff;
+      font-size: 1.2rem;
+      max-width: 800px;
+      line-height: 1.6;
+      color: #555;
     }
 
     /* SECTION WRAPPER */
     section {
-      padding: 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
+      padding: 80px 20px;
     }
     .section-title {
-      font-size: 2.2rem;
+      font-size: 2rem;
       text-align: center;
-      margin-bottom: 50px;
-      color: #007bff;
-      position: relative;
-    }
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: #007bff;
-      margin: 20px auto 0;
-      border-radius: 2px;
+      margin-bottom: 60px;
+      font-weight: 500;
+      color: #000;
     }
 
-    /* EXPERIENCE ROW STYLE */
+    /* EXPERIENCE ROW STYLE (IMAGE LEFT, TEXT RIGHT) */
     .exp-card {
       display: flex;
       align-items: center;
-      background: #f7f7f7;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      margin-bottom: 40px;
-      overflow: hidden;
+      margin-bottom: 60px;
+      gap: 40px;
     }
     .exp-card img {
-      width: 300px;
-      height: 100%;
+      width: 400px;
+      max-width: 100%;
       object-fit: cover;
+      border-radius: 8px;
+      background: #fafafa;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     .exp-content {
-      padding: 30px;
+      flex: 1;
     }
     .exp-content h3 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      color: #007bff;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: #000;
+      font-weight: 500;
     }
-    .exp-content p, .exp-content li {
+    .exp-content p {
       line-height: 1.6;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      color: #555;
     }
 
     /* RESPONSIVE LAYOUT */
@@ -151,16 +148,17 @@
       }
       .exp-card img {
         width: 100%;
-        height: auto;
+        margin-bottom: 20px;
       }
     }
 
     /* FOOTER */
     footer {
       text-align: center;
-      padding: 20px;
-      background: #f1f1f1;
+      padding: 40px 20px;
+      background: #f5f5f7;
       color: #777;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -191,13 +189,12 @@
   </section>
 
   <!-- EDUCATION SECTION -->
-  <section id="education" data-aos="fade-up">
-    <h2 class="section-title">Education</h2>
-    <div class="exp-card" data-aos="fade-right">
+  <section id="education">
+    <h2 class="section-title" data-aos="fade-up">Education</h2>
+    <div class="exp-card" data-aos="fade-up">
       <img src="img/nus_education.png" alt="NUS Education Image"/>
       <div class="exp-content">
-        <h3>National University of Singapore</h3>
-        <p>(Aug 2022 - Aug 2026, Expected)</p>
+        <h3>National University of Singapore (Aug 2022 - Aug 2026, Expected)</h3>
         <p>Bachelor of Computing in Computer Science (AI Track), Minor in Mathematics, Economics, and Statistics</p>
         <ul>
           <li>CS Courses: AI, Machine Learning, Computer Vision, NLP, Data Structures & Algorithms, etc.</li>
@@ -210,12 +207,12 @@
   </section>
 
   <!-- TECHNICAL SKILLS -->
-  <section id="skills" data-aos="fade-up">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="exp-card" data-aos="fade-right">
-      <img src="img/tech_skills.png" alt="Technical Skills Image"/>
+  <section id="skills">
+    <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
+    <div class="exp-card" data-aos="fade-up">
+      <img src="img/tech_skills.png" alt="Technical Skills"/>
       <div class="exp-content">
-        <h3>Programming & Tools</h3>
+        <h3>Programming &amp; Tools</h3>
         <ul>
           <li>Languages: Java, Python, C, MATLAB, R</li>
           <li>Frameworks/Libraries: PyTorch, Flask</li>
@@ -226,14 +223,14 @@
   </section>
 
   <!-- RESEARCH EXPERIENCE -->
-  <section id="research" data-aos="fade-up">
-    <h2 class="section-title">Research Experience</h2>
+  <section id="research">
+    <h2 class="section-title" data-aos="fade-up">Research Experience</h2>
+
     <!-- NUS Research -->
-    <div class="exp-card" data-aos="fade-right">
-      <img src="img/research1.png" alt="Research Image 1"/>
+    <div class="exp-card" data-aos="fade-up">
+      <img src="img/research1.png" alt="Research 1"/>
       <div class="exp-content">
-        <h3>NUS: Discovering Winning Strategies in Sports</h3>
-        <p>(Apr 2024 - Present)</p>
+        <h3>NUS: Discovering Winning Strategies in Sports (Apr 2024 - Present)</h3>
         <ul>
           <li>Utilized Python (Pandas, Matplotlib) for tennis match data processing and visualization</li>
           <li>Created HTML reports with CSS for enhanced visual clarity</li>
@@ -245,12 +242,12 @@
         </ul>
       </div>
     </div>
-    <!-- Tsinghua–Berkeley Research -->
-    <div class="exp-card" data-aos="fade-left">
-      <img src="img/research2.png" alt="Research Image 2"/>
+
+    <!-- Tsinghua–Berkeley 1 -->
+    <div class="exp-card" data-aos="fade-up">
+      <img src="img/research2.png" alt="Research 2"/>
       <div class="exp-content">
-        <h3>Tsinghua–Berkeley: Active Vision & Optical Zoom</h3>
-        <p>(Dec 2024 - Jan 2025)</p>
+        <h3>Tsinghua–Berkeley: Active Vision &amp; Optical Zoom (Dec 2024 - Jan 2025)</h3>
         <ul>
           <li>Trained YOLOv5 for object detection; developed adaptive zoom algorithm</li>
           <li>Conducted feasibility study with RoboTwin platform</li>
@@ -259,12 +256,12 @@
         </ul>
       </div>
     </div>
-    <!-- Tsinghua–Berkeley Research 2 -->
-    <div class="exp-card" data-aos="fade-right">
-      <img src="img/research3.png" alt="Research Image 3"/>
+
+    <!-- Tsinghua–Berkeley 2 -->
+    <div class="exp-card" data-aos="fade-up">
+      <img src="img/research3.png" alt="Research 3"/>
       <div class="exp-content">
-        <h3>Tsinghua–Berkeley: Humanoid Robots & Imitation Learning</h3>
-        <p>(Jul 2024 - Aug 2024)</p>
+        <h3>Tsinghua–Berkeley: Humanoid Robots &amp; Imitation Learning (Jul 2024 - Aug 2024)</h3>
         <ul>
           <li>Reproduced “OPEN TEACH” research for teleoperation</li>
           <li>Used Nvidia Isaac Lab/Gym and Meta Quest 3 for gesture-based control</li>
@@ -273,25 +270,25 @@
         </ul>
       </div>
     </div>
-    <!-- Xi'an Jiaotong Research -->
-    <div class="exp-card" data-aos="fade-left">
-      <img src="img/research4.png" alt="Research Image 4"/>
+
+    <!-- Xi'an Jiaotong University -->
+    <div class="exp-card" data-aos="fade-up">
+      <img src="img/research4.png" alt="Research 4"/>
       <div class="exp-content">
-        <h3>Xi’an Jiaotong University: Social Hotspot Propagation</h3>
-        <p>(Dec 2023 - Present)</p>
+        <h3>Xi’an Jiaotong University: Social Hotspot Propagation (Dec 2023 - Present)</h3>
         <ul>
           <li>Authored a review on information diffusion models in social networks</li>
-          <li>Enhanced Independent Cascade model with individual influence & network structure</li>
+          <li>Enhanced Independent Cascade model with individual influence &amp; network structure</li>
           <li>Utilized community detection to predict information spread patterns</li>
         </ul>
       </div>
     </div>
-    <!-- X-Institute Summer Camp Research -->
-    <div class="exp-card" data-aos="fade-right">
-      <img src="img/research5.png" alt="Research Image 5"/>
+
+    <!-- X-Institute Summer Camp -->
+    <div class="exp-card" data-aos="fade-up">
+      <img src="img/research5.png" alt="Research 5"/>
       <div class="exp-content">
-        <h3>X-Institute Summer Camp: Drone Simulation</h3>
-        <p>(Jul 2023 - Aug 2023)</p>
+        <h3>X-Institute Summer Camp: Drone Simulation (Jul 2023 - Aug 2023)</h3>
         <ul>
           <li>Engineered a simulation game with controllable drones exploring 3D terrains</li>
           <li>Developed a vision-based obstacle avoidance system</li>
@@ -304,13 +301,12 @@
   </section>
 
   <!-- INTERNSHIP EXPERIENCE -->
-  <section id="internship" data-aos="fade-up">
-    <h2 class="section-title">Internship Experience</h2>
-    <div class="exp-card" data-aos="fade-right">
-      <img src="img/internship1.png" alt="Internship Image"/>
+  <section id="internship">
+    <h2 class="section-title" data-aos="fade-up">Internship Experience</h2>
+    <div class="exp-card" data-aos="fade-up">
+      <img src="img/internship1.png" alt="Internship"/>
       <div class="exp-content">
-        <h3>AI Algorithm Intern, Bytedance</h3>
-        <p>(Dec 2023 - Jan 2024)</p>
+        <h3>AI Algorithm Intern, Bytedance (Dec 2023 - Jan 2024)</h3>
         <ul>
           <li>Developed a web crawler to build a custom handwritten digits dataset</li>
           <li>Trained CNN for digit classification using PyTorch (VGG16, ResNet, Inception v3)</li>
@@ -322,37 +318,34 @@
   </section>
 
   <!-- PROJECT EXPERIENCE -->
-  <section id="projects" data-aos="fade-up">
-    <h2 class="section-title">Project Experience</h2>
-    <div class="exp-card" data-aos="fade-right">
+  <section id="projects">
+    <h2 class="section-title" data-aos="fade-up">Project Experience</h2>
+    <div class="exp-card" data-aos="fade-up">
       <img src="img/project1.png" alt="EduLink-NUS"/>
       <div class="exp-content">
-        <h3>EduLink-NUS Academic Data Management</h3>
-        <p>(Jan 2024 - Aug 2024)</p>
+        <h3>EduLink-NUS Academic Data Management (Jan 2024 - Aug 2024)</h3>
         <ul>
           <li>Developed a desktop app to streamline student data management for NUS instructors</li>
           <li>Implemented tagging functionalities for efficient data retrieval</li>
-          <li>Enhanced UI using JavaFX; performed robust unit & integration testing</li>
+          <li>Enhanced UI using JavaFX; performed robust unit &amp; integration testing</li>
           <li>Maintained documentation for developers and end-users</li>
         </ul>
       </div>
     </div>
-    <div class="exp-card" data-aos="fade-left">
+    <div class="exp-card" data-aos="fade-up">
       <img src="img/project2.png" alt="MCM"/>
       <div class="exp-content">
-        <h3>Mathematical Contest in Modeling</h3>
-        <p>(Feb 2024)</p>
+        <h3>Mathematical Contest in Modeling (Feb 2024)</h3>
         <ul>
           <li>Developed a momentum quantification model for tennis matches (Exponential Decay + AHP)</li>
           <li>Achieved F1 score of 0.75 using a Random Forest-LSTM hybrid model</li>
         </ul>
       </div>
     </div>
-    <div class="exp-card" data-aos="fade-right">
+    <div class="exp-card" data-aos="fade-up">
       <img src="img/project3.png" alt="RightShip Hackathon"/>
       <div class="exp-content">
-        <h3>RightShip Hackathon</h3>
-        <p>(Jan 2024)</p>
+        <h3>RightShip Hackathon (Jan 2024)</h3>
         <ul>
           <li>Analyzed GHG emissions reduction via maritime port electrification with Python</li>
         </ul>
@@ -361,23 +354,21 @@
   </section>
 
   <!-- EXTRA-CURRICULAR ACTIVITIES -->
-  <section id="activities" data-aos="fade-up">
-    <h2 class="section-title">Extra-Curricular Activities</h2>
-    <div class="exp-card" data-aos="fade-right">
+  <section id="activities">
+    <h2 class="section-title" data-aos="fade-up">Extra-Curricular Activities</h2>
+    <div class="exp-card" data-aos="fade-up">
       <img src="img/activity1.png" alt="commIT"/>
       <div class="exp-content">
-        <h3>NUS Student Union commIT Technical Team</h3>
-        <p>(Dec 2024 - Present)</p>
+        <h3>NUS Student Union commIT Technical Team (Dec 2024 - Present)</h3>
         <ul>
           <li>Developing NUS Student Union website and finance manager software for clubs</li>
         </ul>
       </div>
     </div>
-    <div class="exp-card" data-aos="fade-left">
+    <div class="exp-card" data-aos="fade-up">
       <img src="img/activity2.png" alt="Chinese Society"/>
       <div class="exp-content">
-        <h3>NUS Chinese Society</h3>
-        <p>(Jan 2024 - Present)</p>
+        <h3>NUS Chinese Society (Jan 2024 - Present)</h3>
         <ul>
           <li>Managed event logistics, transporting goods and arranging venues</li>
         </ul>
@@ -386,25 +377,25 @@
   </section>
 
   <!-- AWARDS & HONORS -->
-  <section id="awards" data-aos="fade-up">
-    <h2 class="section-title">Awards & Honors</h2>
-    <div class="exp-card" data-aos="fade-right">
-      <img src="img/awards.png" alt="Awards Image"/>
+  <section id="awards">
+    <h2 class="section-title" data-aos="fade-up">Awards &amp; Honors</h2>
+    <div class="exp-card" data-aos="fade-up">
+      <img src="img/awards.png" alt="Awards"/>
       <div class="exp-content">
         <h3>Achievements</h3>
         <ul>
           <li>National Gold (Division 2) in PHYSICSBOWL 2021</li>
           <li>Gold in British Physics Olympiad 2020-2021 Senior Physics Challenge</li>
           <li>High Distinction in Australian Science Olympiads-Physics</li>
-          <li>Entrepreneurship Award at FRC; Motivate Award & Second Place Alliance at FTC</li>
-          <li>Shenzhen Foreign Language School Soccer Team & Club Leader</li>
+          <li>Entrepreneurship Award at FRC; Motivate Award &amp; Second Place Alliance at FTC</li>
+          <li>Shenzhen Foreign Language School Soccer Team &amp; Club Leader</li>
         </ul>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer data-aos="fade-up">
+  <footer>
     <p>&copy; 2025 Li Zizhen. All Rights Reserved.</p>
   </footer>
 
@@ -412,8 +403,8 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
-      duration: 1000,
-      once: true
+      duration: 800, /* speed of the animation */
+      once: true     /* whether animation should happen only once */
     });
   </script>
 </body>
