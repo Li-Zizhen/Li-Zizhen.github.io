@@ -28,8 +28,12 @@
       scroll-behavior: smooth;
     }
     a {
-      text-decoration: none;
+      text-decoration: None;
       color: inherit;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
     ul {
       list-style: disc inside;
@@ -73,17 +77,61 @@
 
     /* HERO SECTION */
     #hero {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      /* White background, big text, Apple-like spacing */
       background-color: #fff;
       text-align: center;
       padding: 0 20px;
-      margin-top: 64px; /* To avoid nav overlap */
+      margin-top: 64px;
     }
+
+  .scroll-down {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    text-decoration: none;
+  }
+
+  .scroll-down a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .scroll-down span {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .scroll-down svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
     #hero h1 {
       font-size: 3rem;
       font-weight: 500;
@@ -169,7 +217,6 @@
     <ul>
       <li><a href="#hero">Home</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Technical Skills</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#internship">Internship</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -179,14 +226,28 @@
   </nav>
 
   <!-- HERO SECTION -->
-  <section id="hero">
-    <h1 data-aos="fade-up">Li Zizhen</h1>
-    <p data-aos="fade-up" data-aos-delay="200">
-      Bachelor of Computing in Computer Science (AI Track)  
-      <br/>Minors in Mathematics, Economics, and Statistics
-      <br/>National University of Singapore
-    </p>
-  </section>
+<!-- HERO SECTION -->
+<section id="hero">
+  <h1 data-aos="fade-up">Li Zizhen</h1>
+  <p data-aos="fade-up" data-aos-delay="200">
+    Bachelor of Computing in Computer Science (AI Track)
+    <br/>Minors in Mathematics, Economics, and Statistics
+    <br/>National University of Singapore
+  </p>
+
+  <!-- Scroll Down Indicator -->
+  <div class="scroll-down" data-aos="fade-up" data-aos-delay="300">
+    <!-- Link to the next section, e.g. #education -->
+    <a href="#education">
+      <span>Scroll Down</span>
+      <!-- Simple down arrow (SVG) -->
+      <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+        <path d="M12 4c-.55 0-1 .45-1 1v12.59l-4.29-4.3a.996.996 0 10-1.41 1.41l6 6c.39.39 1.02.39 1.41
+          0l6-6a.996.996 0 10-1.41-1.41L13 17.59V5c0-.55-.45-1-1-1z"/>
+      </svg>
+    </a>
+  </div>
+</section>
 
   <!-- EDUCATION SECTION -->
   <section id="education">
@@ -194,14 +255,22 @@
     <div class="exp-card" data-aos="fade-up">
       <img src="img/nus_education.jpg" alt="NUS Education Image"/>
       <div class="exp-content">
-        <h3>National University of Singapore (Aug 2022 - Aug 2026, Expected)</h3>
-        <p>Bachelor of Computing in Computer Science (AI Track), Minor in Mathematics, Economics, and Statistics</p>
+        <h3> <a href="https://www.nus.edu.sg/"> National University of Singapore</a></h3>
+        <p>Aug 2022 - Aug 2026, Expected</p>
+        <p>Bachelor of Computing in Computer Science (AI Track)</p>
         <ul>
-          <li>CS Courses: AI, Machine Learning, Computer Vision, NLP, Data Structures & Algorithms, etc.</li>
-          <li>Math Courses: Discrete Structures, Linear Algebra, Probability, Statistics, etc.</li>
+          <li>CS Courses: <a href="https://nusmods.com/courses/CS3263/foundations-of-artificial-intelligence"> AI</a>,
+            <a href="https://nusmods.com/courses/CS3264/foundations-of-machine-learning"> Machine Learning</a>,
+            <a href="https://nusmods.com/courses/CS4243/computer-vision-and-pattern-recognition"> Computer Vision</a>,
+            <a href="https://nusmods.com/courses/CS4248/natural-language-processing"> NLP</a>,
+            <a href="https://nusmods.com/courses/CS2040S/data-structures-and-algorithms"> Data Structures & Algorithms</a>,
+            etc.
+          </li>
+          <li>Math Courses: Discrete Structures, Linear Algebra, Probability, Statistics, Calculus, etc.</li>
           <li>Summer Exchange: Peking University (Machine Learning Algorithms: From Math to Code)</li>
-          <li>Standardized Exams: GRE 330/340, TOEFL 109/120</li>
+          <li>Standardized Exams: GRE 330/340, TOEFL 109/120 (S:25)</li>
         </ul>
+        </br>
         <h4>TECHNICAL SKILLS</h4>
         <ul>
           <li>Languages: Java, Python, C, MATLAB, R</li>
@@ -210,33 +279,18 @@
         </ul>
       </div>
     </div>
-<!--   </section>
-
-  <!-- TECHNICAL SKILLS -->
-  <section id="skills">
-    <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
-    <div class="exp-card" data-aos="fade-up">
-      <img src="img/tech_skills.png" alt="Technical Skills"/>
-      <div class="exp-content">
-        <h3>Programming &amp; Tools</h3>
-        <ul>
-          <li>Languages: Java, Python, C, MATLAB, R</li>
-          <li>Frameworks/Libraries: PyTorch, Flask</li>
-          <li>Other Tools: Git, GitHub, Bash, Web Crawlers, HTML, CSS</li>
-        </ul>
-      </div>
-    </div>
-  </section> -->
-
+</section>
   <!-- RESEARCH EXPERIENCE -->
   <section id="research">
     <h2 class="section-title" data-aos="fade-up">Research Experience</h2>
 
     <!-- NUS Research -->
     <div class="exp-card" data-aos="fade-up">
-      <img src="img/research1.png" alt="Research 1"/>
+      <img src="img/research1.jpg" alt="Research 1"/>
       <div class="exp-content">
-        <h3>NUS: Discovering Winning Strategies in Sports (Apr 2024 - Present)</h3>
+        <h3><a href="https://www.comp.nus.edu.sg/programmes/ug/project/urop/">NUS UROP</a>: Discovering Winning Strategies in Sports </h3>
+        <h4>Apr 2024 - Present</h4>
+        <br>
         <ul>
           <li>Utilized Python (Pandas, Matplotlib) for tennis match data processing and visualization</li>
           <li>Created HTML reports with CSS for enhanced visual clarity</li>
@@ -245,15 +299,18 @@
           <li>Implemented AWS SQS for secure server-backend communication</li>
           <li>Developed an LLM ChatBot for on-demand data insights</li>
           <li>Presented a poster at UREC2025</li>
+          <li><a href="https://depintel.pythonanywhere.com/">Website Link</a></li>
         </ul>
       </div>
     </div>
 
     <!-- Tsinghua–Berkeley 1 -->
     <div class="exp-card" data-aos="fade-up">
-      <img src="img/research2.png" alt="Research 2"/>
+      <img src="img/research2.jpg" alt="Research 2"/>
       <div class="exp-content">
-        <h3>Tsinghua–Berkeley: Active Vision &amp; Optical Zoom (Dec 2024 - Jan 2025)</h3>
+        <h3>Tsinghua–Berkeley: Active Vision &amp; Optical Zoom</h3>
+        <h4>Dec 2024 - Jan 2025</h4>
+        <br>
         <ul>
           <li>Trained YOLOv5 for object detection; developed adaptive zoom algorithm</li>
           <li>Conducted feasibility study with RoboTwin platform</li>
@@ -265,9 +322,11 @@
 
     <!-- Tsinghua–Berkeley 2 -->
     <div class="exp-card" data-aos="fade-up">
-      <img src="img/research3.png" alt="Research 3"/>
+      <img src="img/research3.jpg" alt="Research 3"/>
       <div class="exp-content">
-        <h3>Tsinghua–Berkeley: Humanoid Robots &amp; Imitation Learning (Jul 2024 - Aug 2024)</h3>
+        <h3>Tsinghua–Berkeley: Humanoid Robots &amp; Imitation Learning</h3>
+        <h4>Jul 2024 - Aug 2024</h4>
+        <br>
         <ul>
           <li>Reproduced “OPEN TEACH” research for teleoperation</li>
           <li>Used Nvidia Isaac Lab/Gym and Meta Quest 3 for gesture-based control</li>
@@ -277,24 +336,13 @@
       </div>
     </div>
 
-    <!-- Xi'an Jiaotong University -->
-    <div class="exp-card" data-aos="fade-up">
-      <img src="img/research4.png" alt="Research 4"/>
-      <div class="exp-content">
-        <h3>Xi’an Jiaotong University: Social Hotspot Propagation (Dec 2023 - Present)</h3>
-        <ul>
-          <li>Authored a review on information diffusion models in social networks</li>
-          <li>Enhanced Independent Cascade model with individual influence &amp; network structure</li>
-          <li>Utilized community detection to predict information spread patterns</li>
-        </ul>
-      </div>
-    </div>
-
     <!-- X-Institute Summer Camp -->
     <div class="exp-card" data-aos="fade-up">
-      <img src="img/research5.png" alt="Research 5"/>
+      <img src="img/research4.jpg" alt="Research 5"/>
       <div class="exp-content">
-        <h3>X-Institute Summer Camp: Drone Simulation (Jul 2023 - Aug 2023)</h3>
+        <h3>X-Institute Summer Camp: Drone Simulation</h3>
+        <h4>Jul 2023 - Aug 2023</h4>
+        <br>
         <ul>
           <li>Engineered a simulation game with controllable drones exploring 3D terrains</li>
           <li>Developed a vision-based obstacle avoidance system</li>
@@ -312,7 +360,9 @@
     <div class="exp-card" data-aos="fade-up">
       <img src="img/internship1.png" alt="Internship"/>
       <div class="exp-content">
-        <h3>AI Algorithm Intern, Bytedance (Dec 2023 - Jan 2024)</h3>
+        <h3>AI Algorithm Intern, Bytedance</h3>
+        <h4>Dec 2023 - Jan 2024</h4>
+        <br>
         <ul>
           <li>Developed a web crawler to build a custom handwritten digits dataset</li>
           <li>Trained CNN for digit classification using PyTorch (VGG16, ResNet, Inception v3)</li>
@@ -329,19 +379,24 @@
     <div class="exp-card" data-aos="fade-up">
       <img src="img/project1.png" alt="EduLink-NUS"/>
       <div class="exp-content">
-        <h3>EduLink-NUS Academic Data Management (Jan 2024 - Aug 2024)</h3>
+        <h3>EduLink-NUS Academic Data Management</h3>
+        <h4>Jan 2024 - Aug 2024</h4>
+        <br>
         <ul>
           <li>Developed a desktop app to streamline student data management for NUS instructors</li>
           <li>Implemented tagging functionalities for efficient data retrieval</li>
           <li>Enhanced UI using JavaFX; performed robust unit &amp; integration testing</li>
           <li>Maintained documentation for developers and end-users</li>
+          <li><a href="https://github.com/AY2324S2-CS2103T-T16-1/tp">Project link</a></li>
         </ul>
       </div>
     </div>
     <div class="exp-card" data-aos="fade-up">
       <img src="img/project2.png" alt="MCM"/>
       <div class="exp-content">
-        <h3>Mathematical Contest in Modeling (Feb 2024)</h3>
+        <h3>Mathematical Contest in Modeling</h3>
+        <h4>Feb 2024</h4>
+        <br>
         <ul>
           <li>Developed a momentum quantification model for tennis matches (Exponential Decay + AHP)</li>
           <li>Achieved F1 score of 0.75 using a Random Forest-LSTM hybrid model</li>
@@ -351,7 +406,9 @@
     <div class="exp-card" data-aos="fade-up">
       <img src="img/project3.png" alt="RightShip Hackathon"/>
       <div class="exp-content">
-        <h3>RightShip Hackathon (Jan 2024)</h3>
+        <h3>RightShip Hackathon</h3>
+        <h4>Jan 2024</h4>
+        <br>
         <ul>
           <li>Analyzed GHG emissions reduction via maritime port electrification with Python</li>
         </ul>
@@ -365,7 +422,9 @@
     <div class="exp-card" data-aos="fade-up">
       <img src="img/activity1.png" alt="commIT"/>
       <div class="exp-content">
-        <h3>NUS Student Union commIT Technical Team (Dec 2024 - Present)</h3>
+        <h3>NUS Student Union commIT Technical Team</h3>
+        <h4>Dec 2024 - Present</h4>
+        <br>
         <ul>
           <li>Developing NUS Student Union website and finance manager software for clubs</li>
         </ul>
@@ -374,7 +433,9 @@
     <div class="exp-card" data-aos="fade-up">
       <img src="img/activity2.png" alt="Chinese Society"/>
       <div class="exp-content">
-        <h3>NUS Chinese Society (Jan 2024 - Present)</h3>
+        <h3>NUS Chinese Society</h3>
+        <h4>Jan 2024 - Present</h4>
+        <br>
         <ul>
           <li>Managed event logistics, transporting goods and arranging venues</li>
         </ul>
@@ -386,7 +447,7 @@
   <section id="awards">
     <h2 class="section-title" data-aos="fade-up">Awards &amp; Honors</h2>
     <div class="exp-card" data-aos="fade-up">
-      <img src="img/awards.png" alt="Awards"/>
+      <img src="img/awards.png" alt="Awards" />
       <div class="exp-content">
         <h3>Achievements</h3>
         <ul>
@@ -394,7 +455,7 @@
           <li>Gold in British Physics Olympiad 2020-2021 Senior Physics Challenge</li>
           <li>High Distinction in Australian Science Olympiads-Physics</li>
           <li>Entrepreneurship Award at FRC; Motivate Award &amp; Second Place Alliance at FTC</li>
-          <li>Shenzhen Foreign Language School Soccer Team &amp; Club Leader</li>
+          <li>Shenzhen Foreign Languages School Soccer Team &amp; Club Leader</li>
         </ul>
       </div>
     </div>
@@ -409,6 +470,7 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
+      offset: 0,
       duration: 800, /* speed of the animation */
       once: true     /* whether animation should happen only once */
     });
