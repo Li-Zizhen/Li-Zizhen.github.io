@@ -16,197 +16,102 @@
   />
   <style>
     /* RESET & GLOBAL STYLES */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #fff;
-      color: #333;
-      scroll-behavior: smooth;
-    }
-    a {
-      text-decoration: None;
-      color: inherit;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-    ul {
-      list-style: disc inside;
-      margin-left: 20px;
-      padding-left: 0;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; background-color: #fff; color: #333; scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; }
+    a:hover { text-decoration: underline; }
+    ul { list-style: disc inside; margin-left: 20px; padding-left: 0; }
 
     /* NAVIGATION (APPLE-LIKE MINIMALISM) */
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #f5f5f7; /* Light gray background often used by Apple */
-      padding: 16px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 999;
-      box-shadow: 0 0 6px rgba(0,0,0,0.05);
+      position: fixed; top: 0; width: 100%;
+      background: #f5f5f7; padding: 16px 32px;
+      display: flex; justify-content: space-between; align-items: center;
+      z-index: 999; box-shadow: 0 0 6px rgba(0,0,0,0.05);
     }
-    nav .logo {
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: #000;
-    }
-    nav ul {
-      display: flex;
-      gap: 24px;
-    }
-    nav ul li {
-      list-style: none;
-    }
-    nav ul li a {
-      font-weight: 400;
-      color: #000;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover {
-      color: #666;
-    }
+    nav .logo { font-size: 1.4rem; font-weight: 500; color: #000; }
+    nav ul { display: flex; gap: 24px; }
+    nav ul li { list-style: none; }
+    nav ul li a { font-weight: 400; color: #000; transition: color 0.3s; }
+    nav ul li a:hover { color: #666; }
 
     /* HERO SECTION */
     #hero {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #fff;
-      text-align: center;
-      padding: 0 20px;
-      margin-top: 64px;
+      position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      height: 100vh; background-color: #fff; text-align: center; padding: 0 20px; margin-top: 64px;
     }
+    .scroll-down {
+      position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; color: #333; cursor: pointer; animation: bounce 2s infinite; text-decoration: none;
+    }
+    .scroll-down a { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: inherit; }
+    .scroll-down span { font-size: 1rem; margin-bottom: 8px; }
+    .scroll-down svg { width: 24px; height: 24px; }
 
-  .scroll-down {
-    position: absolute;
-    bottom: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #333;
-    cursor: pointer;
-    animation: bounce 2s infinite;
-    text-decoration: none;
-  }
-
-  .scroll-down a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .scroll-down span {
-    font-size: 1rem;
-    margin-bottom: 8px;
-  }
-
-  .scroll-down svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateX(-50%) translateY(0);
+    @keyframes bounce {
+      0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
     }
-    40% {
-      transform: translateX(-50%) translateY(-10px);
-    }
-    60% {
-      transform: translateX(-50%) translateY(-5px);
-    }
-  }
-    #hero h1 {
-      font-size: 3rem;
-      font-weight: 500;
-      margin-bottom: 16px;
-      color: #000;
-    }
-    #hero p {
-      font-size: 1.2rem;
-      max-width: 800px;
-      line-height: 1.6;
-      color: #555;
-    }
+    #hero h1 { font-size: 3rem; font-weight: 500; margin-bottom: 16px; color: #000; }
+    #hero p { font-size: 1.2rem; max-width: 800px; line-height: 1.6; color: #555; }
 
     /* SECTION WRAPPER */
-    section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 20px;
-    }
-    .section-title {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 60px;
-      font-weight: 500;
-      color: #000;
-    }
+    section { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+    .section-title { font-size: 2rem; text-align: center; margin-bottom: 60px; font-weight: 500; color: #000; }
 
     /* EXPERIENCE ROW STYLE (IMAGE LEFT, TEXT RIGHT) */
-    .exp-card {
-      display: flex;
-      align-items: center;
-      margin-bottom: 60px;
-      gap: 40px;
-    }
+    .exp-card { display: flex; align-items: center; margin-bottom: 60px; gap: 40px; }
     .exp-card img {
-      width: 400px;
-      max-width: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      background: #fafafa;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      width: 400px; max-width: 100%; object-fit: cover; border-radius: 8px;
+      background: #fafafa; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    .exp-content {
-      flex: 1;
-    }
-    .exp-content h3 {
-      font-size: 1.6rem;
-      margin-bottom: 12px;
-      color: #000;
-      font-weight: 500;
-    }
-    .exp-content p {
-      line-height: 1.6;
-      margin-bottom: 12px;
-      color: #555;
-    }
+    .exp-content { flex: 1; }
+    .exp-content h3 { font-size: 1.6rem; margin-bottom: 12px; color: #000; font-weight: 500; }
+    .exp-content p { line-height: 1.6; margin-bottom: 12px; color: #555; }
 
     /* RESPONSIVE LAYOUT */
     @media (max-width: 768px) {
-      .exp-card {
-        flex-direction: column;
-      }
-      .exp-card img {
-        width: 100%;
-        margin-bottom: 20px;
-      }
+      .exp-card { flex-direction: column; }
+      .exp-card img { width: 100%; margin-bottom: 20px; }
     }
 
     /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      background: #f5f5f7;
-      color: #777;
-      font-size: 0.9rem;
+    footer { text-align: center; padding: 40px 20px; background: #f5f5f7; color: #777; font-size: 0.9rem; }
+
+    /* ======================================================
+       Always-visible tiny blue external-link arrow (inline)
+       - 占位与字符一致（inline-block）
+       - 更“窄”：水平压缩 scaleX(0.8)
+       - 与前文紧贴：WORD JOINER 防止箭头被换到下一行
+       ====================================================== */
+    :root { --ext-blue: #0a84ff; } /* Apple-like system blue */
+
+    /* 仅作用于 section 中的站外链接（不影响导航锚点） */
+    section a[href^="http"]:not([href*="li-zizhen.github.io"])::after{
+      /* \2060 = WORD JOINER, 紧贴前一字符；↗\FE0E 强制文本样式 */
+      content: "\2060↗\FE0E";
+      display: inline-block;
+      margin-left: .08em;      /* 极小间距 */
+      font-size: .66em;        /* 很小的箭头 */
+      line-height: 1;
+      color: var(--ext-blue);
+      transform: scaleX(.8) translateY(.04em); /* 水平“变窄”并微调基线 */
+      transform-origin: left center;
+      opacity: .95;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    section a[href^="http"]:not([href*="li-zizhen.github.io"]):hover::after,
+    section a[href^="http"]:not([href*="li-zizhen.github.io"]):focus-visible::after{
+      opacity: 1;
+      transform: scaleX(.8) translateY(-.02em);
+    }
+
+    /* 可达性：键盘导航有清晰焦点环 */
+    a:focus { outline: none; }
+    a:focus-visible { outline: 2px solid #1c1c1e; outline-offset: 2px; border-radius: 4px; }
+    @media (prefers-reduced-motion: reduce){
+      section a[href^="http"]:not([href*="li-zizhen.github.io"])::after{ transition: none; }
     }
   </style>
 </head>
@@ -226,28 +131,24 @@
   </nav>
 
   <!-- HERO SECTION -->
-<!-- HERO SECTION -->
-<section id="hero">
-  <h1 data-aos="fade-up">Li Zizhen</h1>
-  <p data-aos="fade-up" data-aos-delay="200">
-    Bachelor of Computing in Computer Science (AI Track)
-    <br/>Minors in Mathematics, Economics, and Statistics
-    <br/>National University of Singapore
-  </p>
+  <section id="hero">
+    <h1 data-aos="fade-up">Li Zizhen</h1>
+    <p data-aos="fade-up" data-aos-delay="200">
+      Bachelor of Computing in Computer Science (AI Track)
+      <br/>Minors in Mathematics, Economics, and Statistics
+      <br/>National University of Singapore
+    </p>
 
   <!-- Scroll Down Indicator -->
-  <div class="scroll-down" data-aos="fade-up" data-aos-delay="300">
-    <!-- Link to the next section, e.g. #education -->
-    <a href="#education">
-      <span>Scroll Down</span>
-      <!-- Simple down arrow (SVG) -->
-      <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-        <path d="M12 4c-.55 0-1 .45-1 1v12.59l-4.29-4.3a.996.996 0 10-1.41 1.41l6 6c.39.39 1.02.39 1.41
-          0l6-6a.996.996 0 10-1.41-1.41L13 17.59V5c0-.55-.45-1-1-1z"/>
-      </svg>
-    </a>
-  </div>
-</section>
+    <div class="scroll-down" data-aos="fade-up" data-aos-delay="300">
+      <a href="#education">
+        <span>Scroll Down</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+          <path d="M12 4c-.55 0-1 .45-1 1v12.59l-4.29-4.3a.996.996 0 10-1.41 1.41l6 6c.39.39 1.02.39 1.41 0l6-6a.996.996 0 10-1.41-1.41L13 17.59V5c0-.55-.45-1-1-1z"/>
+        </svg>
+      </a>
+    </div>
+  </section>
 
   <!-- EDUCATION SECTION -->
   <section id="education">
@@ -255,20 +156,17 @@
     <div class="exp-card" data-aos="fade-up">
       <img src="img/nus_education.jpg" alt="NUS Education Image"/>
       <div class="exp-content">
-        <h3> <a href="https://www.nus.edu.sg/"> National University of Singapore</a></h3>
+        <h3><a href="https://www.nus.edu.sg/">National University of Singapore</a></h3>
         <p>Aug 2022 - Aug 2026, Expected</p>
         <p>Bachelor of Computing in Computer Science (AI Track)</p>
         <ul>
-          <li>CS Courses: <a href="https://nusmods.com/courses/CS3263/foundations-of-artificial-intelligence"> AI</a>,
-            <a href="https://nusmods.com/courses/CS3264/foundations-of-machine-learning"> Machine Learning</a>,
-            <a href="https://nusmods.com/courses/CS4243/computer-vision-and-pattern-recognition"> Computer Vision</a>,
-            <a href="https://nusmods.com/courses/CS4248/natural-language-processing"> NLP</a>,
-            <a href="https://nusmods.com/courses/CS2040S/data-structures-and-algorithms"> Data Structures & Algorithms</a>,
-            etc.
-          </li>
+          <li>CS Courses: AI, Machine Learning, Computer Vision, NLP, Data Structures & Algorithms, etc.</li>
           <li>Math Courses: Discrete Structures, Linear Algebra, Probability, Statistics, Calculus, etc.</li>
           <li>Summer Exchange: Peking University (Machine Learning Algorithms: From Math to Code)</li>
           <li>Standardized Exams: GRE 330/340, TOEFL 109/120 (S:25)</li>
+          <li><a href="https://credentials.nus.edu.sg/f3287e01-e4a4-4658-b9ed-c15ea92ceccd#acc.a9gvfP2h">AY24/25 S2 Dean’s List (Top 5%)</a></li>
+          <li><a href="https://credentials.nus.edu.sg/98dfe755-8656-4cdd-a1e1-23150e09a8af#acc.Nnu6HB3o">Certificate of Distinction in AI Focus Area</a></li>
+          <li>NUS STEER Award (S$1000)</li>
         </ul>
         </br>
         <h4>TECHNICAL SKILLS</h4>
@@ -279,32 +177,62 @@
         </ul>
       </div>
     </div>
-</section>
+  </section>
+
   <!-- RESEARCH EXPERIENCE -->
   <section id="research">
     <h2 class="section-title" data-aos="fade-up">Research Experience</h2>
 
-    <!-- NUS Research -->
+    <!-- FYP – RAG -->
     <div class="exp-card" data-aos="fade-up">
-      <img src="img/research1.jpg" alt="Research 1"/>
+      <img src="img/FYPresearch.png" alt="FYP - Retrieval Augmented Generation"/>
       <div class="exp-content">
-        <h3><a href="https://www.comp.nus.edu.sg/programmes/ug/project/urop/">NUS UROP</a>: Discovering Winning Strategies in Sports </h3>
-        <h4>Apr 2024 - Present</h4>
+        <h3>FYP — Retrieval Augmented Generation (RAG)</h3>
+        <h4>Aug 2025 - Present · NUS</h4>
         <br>
         <ul>
-          <li>Utilized Python (Pandas, Matplotlib) for tennis match data processing and visualization</li>
-          <li>Created HTML reports with CSS for enhanced visual clarity</li>
-          <li>Automated daily match reports with crontab and Bash script</li>
-          <li>Developed Flask web platform for customized report downloads</li>
-          <li>Implemented AWS SQS for secure server-backend communication</li>
-          <li>Developed an LLM ChatBot for on-demand data insights</li>
-          <li>Presented a poster at UREC2025</li>
-          <li><a href="https://depintel.pythonanywhere.com/">Website Link</a></li>
+          <li>Reviewed recent RAG & RL literature to guide system design</li>
+          <li>Built end-to-end pipeline: submodular retrieval selector → evidence compression → structured claim generation → format enforcement</li>
+          <li>Submitted multiple system runs to TREC AG 2025</li>
+          <li>Exploring RL fine-tuning of LLMs in RAG with PPO + LoRA</li>
         </ul>
       </div>
     </div>
 
-    <!-- Tsinghua–Berkeley 1 -->
+    <!-- Cornell Seeker -->
+    <div class="exp-card" data-aos="fade-up">
+      <img src="img/CornellResearch.png" alt="Cornell Seeker project"/>
+      <div class="exp-content">
+        <h3>Cornell — Seeker: Efficient Knowledge Extraction & Retrieval</h3>
+        <h4>Jun 2025 - Present · Research Assistant</h4>
+        <br>
+        <ul>
+          <li>Modernized METAM into a modular, reproducible codebase; fixed core bugs and implemented missing features</li>
+          <li>Shipped a researcher-facing web UI (end-to-end pipeline, dataset upload, variant toggles, cached re-runs)</li>
+          <li>Designed and ran comparative studies across querying, profiling, and weighting variants with analyses/visualizations</li>
+          <li>Funded by Cornell IRIP Scholarship ($11,040)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- NUS UROP -->
+    <div class="exp-card" data-aos="fade-up">
+      <img src="img/research1.jpg" alt="Research 1"/>
+      <div class="exp-content">
+        <h3><a href="https://www.comp.nus.edu.sg/programmes/ug/project/urop/">NUS UROP: Discovering Winning Strategies in Sports</a></h3>
+        <h4>Apr 2024 - Apr 2025</h4>
+        <br>
+        <ul>
+          <li>Automated end-to-end pipeline for daily processing, visualization, and reporting of tennis match data (Python, Crontab, Bash)</li>
+          <li>Deployed a Flask web platform for accessible player reports</li>
+          <li>Built an LLM-powered chatbot for on-demand quantitative analysis and tactical recommendations</li>
+          <li>Presented a poster at UREC 2025 and delivered an oral presentation at ISACE 2025</li>
+          <li><a href="https://depintel.pythonanywhere.com/">Website Link</a> | <a href="https://link.springer.com/chapter/10.1007/978-3-032-06167-6_10">Paper Link</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tsinghua–Berkeley: Active Vision & Optical Zoom -->
     <div class="exp-card" data-aos="fade-up">
       <img src="img/research2.jpg" alt="Research 2"/>
       <div class="exp-content">
@@ -312,28 +240,28 @@
         <h4>Dec 2024 - Jan 2025</h4>
         <br>
         <ul>
-          <li>Trained YOLO for object detection; developed adaptive zoom algorithm</li>
-          <li>Conducted feasibility study with RoboTwin platform</li>
-          <li>Improved task success rates by 14% with zoom-augmented data</li>
-          <li>Extended AV-ALOHA system for VR teleoperation (Quest 3 + USB optical zoom camera)</li>
-          <li>Submitted work to <a href="http://www.iros25.org/">IROS 2025</a></li>
+          <li>Trained YOLO for object detection; developed an adaptive zoom algorithm with exponential smoothing</li>
+          <li>Conducted feasibility study with the RoboTwin platform</li>
+          <li>Improved task success rates by 14% using zoom-augmented data (DP3 baseline)</li>
+          <li>Extended AV-ALOHA for VR teleoperation (Quest 3 + USB optical-zoom camera)</li>
+          <li>Work submitted to ICRA; </li>
           <li><a href="https://arxiv.org/abs/2503.01439">Paper Link</a></li>
         </ul>
       </div>
     </div>
 
-    <!-- Tsinghua–Berkeley 2 -->
+    <!-- Tsinghua–Berkeley: Humanoid Robots & Imitation Learning -->
     <div class="exp-card" data-aos="fade-up">
       <img src="img/research3.jpg" alt="Research 3"/>
       <div class="exp-content">
         <h3>Tsinghua–Berkeley: Humanoid Robots &amp; Imitation Learning</h3>
-        <h4>Jul 2024 - Aug 2024</h4>
+        <h4>Jul 2024 - Aug 2025</h4>
         <br>
         <ul>
-          <li>Reproduced “OPEN TEACH” research for teleoperation</li>
-          <li>Used Nvidia Isaac Lab/Gym and Meta Quest 3 for gesture-based control</li>
-          <li>Collected end-effector and joint angle data for imitation learning</li>
-          <li>Applied behavioral cloning and inverse reinforcement learning</li>
+          <li>Reproduced “OPEN TEACH” for versatile teleoperation</li>
+          <li>Integrated Nvidia Isaac Lab/Gym with Meta Quest 3 for gesture-based control of a virtual Allegro hand</li>
+          <li>Collected multimodal data (end-effector trajectories, joint angles) for downstream imitation learning</li>
+          <li>Applied behavioral cloning and inverse reinforcement learning to improve manipulation performance</li>
         </ul>
       </div>
     </div>
@@ -413,9 +341,11 @@
         <br>
         <ul>
           <li>Analyzed GHG emissions reduction via maritime port electrification with Python</li>
+          <li><a href="https://credentials.nus.edu.sg/3981f856-9fb5-456d-bd43-ada02b86627b#acc.qrI2bF4O">Certificate</a></li>
         </ul>
       </div>
     </div>
+
   </section>
 
   <!-- EXTRA-CURRICULAR ACTIVITIES -->
@@ -471,11 +401,7 @@
   <!-- AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      offset: 0,
-      duration: 800, /* speed of the animation */
-      once: true     /* whether animation should happen only once */
-    });
+    AOS.init({ offset: 0, duration: 800, once: true });
   </script>
 </body>
 </html>
